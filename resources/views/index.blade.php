@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-sm-12 mb-4 mb-xl-0">
         <h4 class="font-weight-bold text-dark">Olá, Seja bem-vindo novamente!</h4>
-        <p class="font-weight-normal mb-2 text-muted">Maio 25, 2023</p>
+        <p class="font-weight-normal mb-2 text-muted">{{ date('F') }} {{ date('d') }}, {{ date('Y') }}</p>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
           <div class="card-body">
             <h4 class="card-title">Total de Receitas</h4>
             <div class="text-center">
-              <h1>{{ $recipes }}</h1>
+              <h1> {{ number_format($recipes, 2, ',', '.') }}</h1>
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@
           <div class="card-body">
             <h4 class="card-title">Total de Despesas</h4>
             <div class="text-center">
-              <h1>{{ $expenses }}</h1>
+              <h1>  {{ number_format($expenses, 2, ',', '.') }} </h1>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
           <div class="card-body">
             <h4 class="card-title">Poupança</h4>
             <div class="text-center">
-              <h1>{{ $savings }}</h1>
+              <h1>{{ number_format($savings, 2, ',', '.') }} </h1>
             </div>
           </div>
         </div>

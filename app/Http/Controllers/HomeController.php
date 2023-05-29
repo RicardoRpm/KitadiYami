@@ -13,8 +13,6 @@ class HomeController extends Controller
         $expenses = Expense::sum('value');
         $recipes = Recipes::sum('value');
         $savings = (float)$recipes - (float)$expenses;
-
-
         return view('index', [
             'expenses' => $expenses,
             'recipes' => $recipes,

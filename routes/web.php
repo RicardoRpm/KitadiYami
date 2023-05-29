@@ -19,7 +19,11 @@ use PhpParser\Node\Expr\FuncCall;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/', function () {
+    return view('site.index');
+})->name('site');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 Route::get('/login', function () {
     return view('users.login');

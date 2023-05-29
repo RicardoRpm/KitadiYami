@@ -40,7 +40,7 @@ class UsersController extends Controller
             Auth::login($user);
             //Auth::user($user);
             $request->session()->regenerate();
-            return redirect('/');
+            return redirect()->route('home');
         }
 
         return back()->withErrors([
