@@ -19,6 +19,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/myStyle.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ URL::asset('images/logo.png') }}" />
 </head>
@@ -120,7 +121,7 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#category" aria-expanded="false" aria-controls="category">
               <i class="icon-disc menu-icon"></i>
-              <span class="menu-title">Categorias</span>
+              <span class="menu-title">Categorias Despesas</span>
               <i class="menu-arrow"></i>
             </a>
 
@@ -131,6 +132,23 @@
               </ul>
             </div>
           </li>
+
+          <!-- 
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#category_recipes" aria-expanded="false" aria-controls="category_recipes">
+              <i class="icon-disc menu-icon"></i>
+              <span class="menu-title">Categorias Receitas</span>
+              <i class="menu-arrow"></i>
+            </a>
+
+            <div class="collapse" id="category_recipes">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('categories.create') }}">Nova</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('categories') }}">Listar</a></li>
+              </ul>
+            </div>
+          </li>
+          -->
         </ul>
       </nav>
       <!-- partial -->
@@ -203,6 +221,8 @@
   <!-- Custom js for this page-->
   <script src="{{ URL::asset('js/dashboard.js') }}"></script>
   <!-- End custom js for this page-->
+
+  @yield('scripts')
 </body>
 
 </html>

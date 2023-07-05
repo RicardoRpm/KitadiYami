@@ -38,7 +38,6 @@ class UsersController extends Controller
 
         if (Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            //Auth::user($user);
             $request->session()->regenerate();
             return redirect()->route('home');
         }
