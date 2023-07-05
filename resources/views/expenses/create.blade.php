@@ -22,20 +22,45 @@
 
                     <form class="forms-sample" action="{{ route('expenses.store') }}" method="post">
                         @csrf
-                        <div class="form-group">
-                            <label for="description">Descrição</label>
-                            <input type="text" class="form-control" id="description" name="description" placeholder="Descrição da despesa">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="description">Descrição</label>
+                                    <input type="text" class="form-control" id="description" name="description" placeholder="Descrição da despesa">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="date">Data</label>
+                                    <input type="date" class="form-control" id="date" name="date">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="value">Valor</label>
+                                    <input type="number" class="form-control" id="value" name="value" placeholder="Valor da despesa">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="value">Categoria Despesa</label>
+                                    <select class="form-control" id="category_expenses" name="category_expenses">
+                                        @foreach ($CategoryExpenses as $CategoryExpense)
+                                            <option value="{{ $CategoryExpense->id }}">{{ $CategoryExpense->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                          <label for="date">Data</label>
-                          <input type="date" class="form-control" id="date" name="date">
-                        </div>
+                        
   
-                        <div class="form-group">
-                          <label for="value">Valor</label>
-                          <input type="number" class="form-control" id="value" name="value" placeholder="Valor da despesa">
-                        </div>
+                        
                         
                         <button type="submit" class="btn btn-primary mr-2">Criar</button>
                         <button class="btn btn-light">Voltar</button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriesExpenses;
 use App\Models\Expense;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,12 +12,17 @@ class ExpensesController extends Controller
     protected function index(Request $request)
     {
         $expenses = Expense::all()->where('user_id', Auth::user()->id);
-        return view('expenses.index', ['expenses' => $expenses]);
+        return view('expenses.index', [
+            'expenses' => $expenses
+        ]);
     }
 
     protected function create()
     {
-        return view('expenses.create');
+        $CategoryExpenses = CategoriesExpenses::all()->where('user_id', Auth::user()->id);
+        return view('expenses.create', [
+            'CategoryExpenses' => $CategoryExpenses
+        ]);
     }
 
     protected function store(Request $request)
@@ -24,6 +30,7 @@ class ExpensesController extends Controller
         $expense = new Expense();
         $expense->value = $request->value;
         $expense->date = $request->date;
+        $expense->description = $request->description;
         $expense->description = $request->description;
         $expense->user_id = Auth::user()->id;
 

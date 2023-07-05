@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\RecipesController;
 use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\HomeController;
+use App\Models\CategoriesRecipies;
 use PhpParser\Node\Expr\FuncCall;
 
 /*
@@ -59,4 +60,11 @@ Route::prefix('categoria')->group(function () {
     Route::Post('/', [CategoriesController::class, 'store'])->name('categories.store');
 
     Route::view('nova_categoria', 'categories.create')->name('categories.create');
+})->middleware('auth');
+
+Route::prefix('categoria_receitas')->group(function () {
+    Route::Get('/', [CategoriesRecipies::class, 'index'])->name('categoriesRecipies');
+    Route::Post('/', [CategoriesRecipies::class, 'store'])->name('categoriesRecipies.store');
+
+    Route::view('nova_categoria', 'categories.create')->name('categoriesRecipies.create');
 })->middleware('auth');

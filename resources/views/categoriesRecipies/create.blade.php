@@ -9,18 +9,18 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Categorias Receitas</h4>
+                    <h4 class="card-title">Categoria</h4>
                     <p class="card-description">
-                    Crie uma nova categoria para as suas receitas
+                    Crie uma nova categoria para as suas despesas
                     </p>
 
                     @if (session('successs_msg'))
                         <div class="alert alert-success" role="alert">
-                            Categoria para as receitas criada com sucesso.
+                            Categoria criada com sucesso.
                         </div>   
                     @endif
 
-                    <form class="forms-sample" action="{{ route('categories.store') }}" method="post">
+                    <form class="forms-sample" action="{{ route('categoriesRecipies.store') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-12">

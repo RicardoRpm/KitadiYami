@@ -6,7 +6,7 @@ use App\Models\CategoriesExpenses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CategoriesController extends Controller
+class CategoriesExpensesController extends Controller
 {
     public function index()
     {

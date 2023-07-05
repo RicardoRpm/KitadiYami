@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CategoriesExpenses;
+use App\Models\CategoriesRecipies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CategoriesController extends Controller
+class CategoriesRecipiesController extends Controller
 {
     public function index()
     {
-        $categories = CategoriesExpenses::all()->where('user_id', Auth::user()->id);
-        return view('categories.index', ['categories' => $categories]);
+        $categories = CategoriesRecipies::all()->where('user_id', Auth::user()->id);
+        return view('categoriesRecipies.index', ['categories' => $categories]);
     }
 
     public function store(Request $request)
     {
-        $category = new CategoriesExpenses();
+        $category = new CategoriesRecipies();
         $category->name = $request->name;
         $category->description = $request->description;
         $category->color = $request->color;
@@ -24,6 +24,6 @@ class CategoriesController extends Controller
 
         $category->save();
 
-        return redirect()->route('categories')->with('successs_msg', 'Categoria criado com sucesso');
+        return redirect()->route('categoriesRecipies')->with('successs_msg', 'Categoria criado com sucesso');
     }
 }
